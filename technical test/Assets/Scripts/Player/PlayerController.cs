@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
+    private Rigidbody rb;
     [SerializeField] private FixedJoystick joystick;
     [SerializeField] private float movementSpeed;
-    [SerializeField] private Animator animator;
+    private Animator animator;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+    }
 
     void Start()
     {
@@ -35,4 +41,20 @@ public class PlayerMovement : MonoBehaviour
         else
             animator.SetBool("IsRunning", false);
     }
+
+    //Detects if a zombie is in range & throws a punch
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.GetComponent<ZombieController>() != null)
+        {
+            collision.gameObject.GetComponent<ZombieController>().punchedByPlayer = true;
+
+            animator.SetTrigger("PunchingRange");
+
+
+            Debug.Log("I hit a zombie");
+        }
+    }
+
+    
 }

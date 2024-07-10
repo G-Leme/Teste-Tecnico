@@ -7,13 +7,13 @@ public class ZombieController : MonoBehaviour
     private float currentTime;
     [SerializeField] private float timeToTurn;
 
-    [SerializeField] private List<Collider> ragdollParts = new List<Collider>();
+    private List<Collider> ragdollParts = new List<Collider>();
 
-    [SerializeField] private Rigidbody rb;
+     private Rigidbody rb;
 
-    [SerializeField] private Animator animator;
+    private Animator animator;
 
-    public bool punchedByPlayer;
+    [HideInInspector] public bool punchedByPlayer;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
