@@ -1529,9 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToTurn: 19.5
-  ragdollParts: []
-  rb: {fileID: 0}
-  animator: {fileID: 0}
+  pushedForce: 30
   punchedByPlayer: 0
 --- !u!1 &6583202932105777392
 GameObject:

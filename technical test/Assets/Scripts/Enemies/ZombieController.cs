@@ -7,7 +7,11 @@ public class ZombieController : MonoBehaviour
     private float currentTime;
     [SerializeField] private float timeToTurn;
 
+    [SerializeField] private float pushedForce;
+
     private List<Collider> ragdollParts = new List<Collider>();
+
+    private PlayerController playerTransform;
 
      private Rigidbody rb;
 
@@ -19,6 +23,8 @@ public class ZombieController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         animator = GetComponent<Animator>();
+
+        playerTransform = FindFirstObjectByType<PlayerController>();
 
         SetRagdoll();
     }
@@ -73,8 +79,9 @@ public class ZombieController : MonoBehaviour
 
     private void EnableRagdoll()
     {
-        
-       // rb.useGravity = false;
+        Vector3 direction  = transform.position - playerTransform.gameObject.transform.position;
+        Vector3 force = direction * pushedForce;
+
         rb.velocity = Vector3.zero;
 
         gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -85,6 +92,7 @@ public class ZombieController : MonoBehaviour
         {
             ragdollColliders.isTrigger = false;
             ragdollColliders.attachedRigidbody.velocity = Vector3.zero;
+            ragdollColliders.attachedRigidbody.AddForce(force, ForceMode.Impulse);
         }
     }
 
