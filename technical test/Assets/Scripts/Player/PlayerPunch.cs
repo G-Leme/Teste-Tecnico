@@ -20,6 +20,8 @@ public class PlayerPunch : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<ZombieController>() != null) 
         {
+
+            collision.gameObject.GetComponent<ZombieController>().punchedByPlayer = true;
             Debug.Log("I hit a zombie");
         }
     }
