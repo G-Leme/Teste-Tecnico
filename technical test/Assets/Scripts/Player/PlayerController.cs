@@ -51,8 +51,6 @@ public class PlayerController : MonoBehaviour
 
             animator.SetTrigger("PunchingRange");
 
-
-            Debug.Log("I hit a zombie");
         }
     }
 

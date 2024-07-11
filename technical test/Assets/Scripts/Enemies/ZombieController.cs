@@ -18,6 +18,8 @@ public class ZombieController : MonoBehaviour
     private Animator animator;
 
     [HideInInspector] public bool punchedByPlayer;
+
+    private bool ragdollEnabled;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -37,16 +39,19 @@ public class ZombieController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        RotateZombie();
+       
 
         if(punchedByPlayer == true)
         {
-            rb.AddForce(500f * Vector3.up);
 
             EnableRagdoll();
 
             punchedByPlayer = false;
+            ragdollEnabled = true;
         }
+        
+        if(ragdollEnabled == false)
+            RotateZombie();
     }
 
     private void RotateZombie()
@@ -81,6 +86,8 @@ public class ZombieController : MonoBehaviour
     {
         Vector3 direction  = transform.position - playerTransform.gameObject.transform.position;
         Vector3 force = direction * pushedForce;
+
+        rb.useGravity = false;
 
         rb.velocity = Vector3.zero;
 
