@@ -22,7 +22,7 @@ public class ZombieCorpseController : MonoBehaviour
       
     }
 
-    private void FixedUpdate()
+    private void Update()
     {/*
         Quaternion currentRotation = transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(0,0,0);
@@ -33,7 +33,7 @@ public class ZombieCorpseController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
        
        
