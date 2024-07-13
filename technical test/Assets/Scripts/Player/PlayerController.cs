@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float movementSpeed;
 
-    public Rigidbody rb;
+    private Rigidbody rb;
 
     private Animator animator;
 

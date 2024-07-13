@@ -10,24 +10,12 @@ public class ZombieCorpseController : MonoBehaviour
 
     [SerializeField]private float duration = 0.5f;
 
-    [SerializeField] private float strength;
-
-    [SerializeField] private float maxAngle = 45f; 
-
-    [SerializeField] private float torqueForce = 10f;
-
-    PlayerController playerController;
-
-    private Rigidbody rb;
-
     private float elapsedTime;
 
 
     void Awake()
     {
-        rb = GetComponent<Rigidbody>();
       
-        playerController = FindAnyObjectByType<PlayerController>();
     }
 
     private void OnEnable()
@@ -43,44 +31,26 @@ public class ZombieCorpseController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        /*
-        float currentAngle = Mathf.Abs(transform.localEulerAngles.z);
-
-        
-        if (currentAngle < maxAngle || currentAngle > 360f - maxAngle)
-        {
-            // Apply torque to rotate the object
-            rb.AddTorque(playerPos.transform.forward * torqueForce);
-
-        }
-        else
-        {
-            rb.angularVelocity = Vector3.zero;
-        }
-        */
-
+        //Rotates to where the player is looking 
         transform.rotation = Quaternion.LookRotation(playerPos.transform.forward);
 
-        ResetCorpsePosition();
+        MoveCorpse();
     }
 
+    //Moves the corpse pile towards the player location + Y offset
     private void MoveCorpse()
     {
-     
-
-
-  
-    }
-
-    private void ResetCorpsePosition()
-    {
         elapsedTime = Time.deltaTime;
+
+        //Calculates how long should the pile take to reach the player position
         float percentageComplete = elapsedTime / duration;
+
         Vector3 currentPos = transform.position;
 
         Vector3 velocity = Vector3.zero;
 
+        //Moves the corpse pile
         transform.position = Vector3.SmoothDamp(transform.position, playerPos.transform.position, ref velocity, duration);
     }
+
 }
