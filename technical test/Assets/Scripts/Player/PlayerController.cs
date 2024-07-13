@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody rb;
+
     [SerializeField] private FixedJoystick joystick;
+
     [SerializeField] private float movementSpeed;
+
+    public Rigidbody rb;
+
     private Animator animator;
+
 
     private void Awake()
     {
@@ -31,15 +37,19 @@ public class PlayerController : MonoBehaviour
 
         //Moves the player using Physics
         rb.velocity = new Vector3(joystick.Horizontal * movementSpeed, rb.velocity.y, joystick.Vertical * movementSpeed);
-        
+
         //Rotates the player
-        if(joystick.Horizontal != 0 ||  joystick.Vertical != 0)
+        if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
             animator.SetBool("IsRunning", true);
+     
         }
         else
+        {
             animator.SetBool("IsRunning", false);
+           
+        }
     }
 
     //Detects if a zombie is in range & throws a punch
