@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class ZombieController : MonoBehaviour
 {
-    private float currentTime;
     [SerializeField] private float timeToTurn;
 
     [SerializeField] private float pushedForce;
+
+    [HideInInspector] public bool punchedByPlayer;
+
+    [HideInInspector] public bool isInRagdoll;
+
+    private GrabbableObject grabbableObject;
+
+    private float currentTime;
 
     private List<Collider> ragdollParts = new List<Collider>();
 
     private PlayerController playerTransform;
 
-     private Rigidbody rb;
+    private Rigidbody rb;
 
     private Animator animator;
+   
 
-    [HideInInspector] public bool punchedByPlayer;
 
-    private bool ragdollEnabled;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -28,8 +34,22 @@ public class ZombieController : MonoBehaviour
 
         playerTransform = FindFirstObjectByType<PlayerController>();
 
+        grabbableObject = GetComponentInChildren<GrabbableObject>();
+
         SetRagdoll();
     }
+
+    private void OnEnable()
+    {
+        DisableRagdoll();
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(DisableObject());
+    }
+
+
 
     void Start()
     {
@@ -45,12 +65,12 @@ public class ZombieController : MonoBehaviour
         {
 
             EnableRagdoll();
-
+            StartCoroutine(DisableObject());
             punchedByPlayer = false;
-            ragdollEnabled = true;
+           
         }
         
-        if(ragdollEnabled == false)
+        if(isInRagdoll  == false)
             RotateZombie();
     }
 
@@ -95,12 +115,51 @@ public class ZombieController : MonoBehaviour
 
         animator.enabled = false;
 
-        foreach(Collider ragdollColliders in ragdollParts)
+        grabbableObject.enabled = true;
+
+        isInRagdoll = true;
+
+        foreach (Collider ragdollColliders in ragdollParts)
         {
             ragdollColliders.isTrigger = false;
             ragdollColliders.attachedRigidbody.velocity = Vector3.zero;
             ragdollColliders.attachedRigidbody.AddForce(force, ForceMode.Impulse);
+            
         }
+    }
+
+    private void DisableRagdoll()
+    {
+        rb.useGravity = true;
+
+        rb.velocity = Vector3.zero;
+
+        gameObject.GetComponent<BoxCollider>().enabled = true;
+
+        animator.enabled = true;    
+
+        foreach (Collider ragdollColliders in ragdollParts)
+        {
+            ragdollColliders.isTrigger = true;
+          
+            ragdollColliders.attachedRigidbody.velocity = Vector3.zero;
+          
+        }
+        isInRagdoll = false;
+    }
+
+    private IEnumerator DisableObject()
+    {
+        yield return new WaitForSeconds(14f);
+
+        //Sets the zombie ragdoll position to a random place to prevent bad interaction with other code
+        transform.position = new Vector3(0, 200, 0);
+
+        yield return new WaitForSeconds(1f);
+
+        //Disables both the zombie Gameobject & the grabbable script
+        grabbableObject.enabled = false;
+        gameObject.SetActive(false);
     }
 
 }

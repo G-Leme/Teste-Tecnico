@@ -48,9 +48,9 @@ public class ZombiePooler : MonoBehaviour
 
       GameObject zombieToSpawn =  zombiePoolDictionary[name].Dequeue();
 
-        zombieToSpawn.SetActive(true);
         zombieToSpawn.transform.position = position;
         zombieToSpawn.transform.rotation = rotation;
+        zombieToSpawn.SetActive(true);
 
         zombiePoolDictionary[name].Enqueue(zombieToSpawn);
 
