@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Corpse
+  - DropArea
   layers:
   - Default
   - TransparentFX

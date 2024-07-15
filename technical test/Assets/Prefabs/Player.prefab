@@ -223,6 +223,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 34bea9670b1b546438039b18a354a39b,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5738754956593818661}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 34bea9670b1b546438039b18a354a39b,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 2109777017297657227}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 34bea9670b1b546438039b18a354a39b,
         type: 3}
@@ -265,7 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c135098db6c43b4780c045f0432ce96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieCorpseList: []
+  dropButton: {fileID: 0}
+  insideDropArea: 0
+  zombieCorpse: []
 --- !u!114 &5103549886990296846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +287,25 @@ MonoBehaviour:
   grabButton: {fileID: 0}
   isGrabbable: 0
   zombieRagdoll: {fileID: 0}
+  maximumCarryAmmount: 1
+  currentlyCarrying: 0
+--- !u!114 &5738754956593818661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083358259846011159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aed93ea6e7f8804096e3b01eb0c2c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
+  levelUpCost: 3
+  currentLevel: 1
+  dropCorpseController: {fileID: 0}
+  levelUpButton: {fileID: 0}
 --- !u!54 &2109777017297657227
 Rigidbody:
   m_ObjectHideFlags: 0

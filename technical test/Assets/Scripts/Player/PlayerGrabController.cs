@@ -13,6 +13,10 @@ public class PlayerGrabController : MonoBehaviour
 
     public static event Action onCorpseGrabbed;
 
+     public int maximumCarryAmmount;
+
+    [HideInInspector] public int currentlyCarrying;
+
     void Start()
     {
         
@@ -23,18 +27,13 @@ public class PlayerGrabController : MonoBehaviour
         grabButton.onClick.AddListener(OnButtonGrabTouch);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<GrabbableObject>() == null)
             return;
 
-        else if (other.GetComponent<GrabbableObject>().enabled != false && other.GetComponent<GrabbableObject>() != null)
+        else if (other.GetComponent<GrabbableObject>().enabled != false && other.GetComponent<GrabbableObject>() != null && currentlyCarrying < maximumCarryAmmount)
         {
             zombieRagdoll = other.GetComponentInParent<ZombieController>().gameObject ;
             isGrabbable = true;
@@ -50,7 +49,7 @@ public class PlayerGrabController : MonoBehaviour
         if (other.GetComponent<GrabbableObject>() == null)
             return;
 
-        if (other.GetComponent<GrabbableObject>().enabled != false && other.GetComponent<GrabbableObject>() != null)
+        if (other.GetComponent<GrabbableObject>().enabled != false && other.GetComponent<GrabbableObject>() != null && currentlyCarrying < maximumCarryAmmount)
         {
             isGrabbable = true;
             zombieRagdoll = other.GetComponentInParent<ZombieController>().gameObject;
@@ -66,11 +65,10 @@ public class PlayerGrabController : MonoBehaviour
     {
         if(isGrabbable == true)
         {
+            currentlyCarrying += 1;
             zombieRagdoll.SetActive(false);
-            Debug.Log("Grabbed zombie");
             isGrabbable = false;
             onCorpseGrabbed?.Invoke();
-            
         }
     }
 }

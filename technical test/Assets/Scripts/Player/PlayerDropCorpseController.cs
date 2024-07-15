@@ -2,20 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Linq;
 
 public class PlayerDropCorpseController : MonoBehaviour
 {
 
-   [SerializeField] private GameObject[] zombieCorpse;
 
     [SerializeField] private Button dropButton;
 
     [SerializeField] private bool insideDropArea;
 
+   [HideInInspector] public GameObject[] zombieCorpse;
+
+    public static event Action onCorpseDropped;
+
+    private PlayerGrabController GrabController;
+
     ZombieCorpseSpawner corpseSpawner;
 
     void Awake()
     {
+        GrabController = GetComponent<PlayerGrabController>();
         corpseSpawner = FindAnyObjectByType<ZombieCorpseSpawner>();
         dropButton.onClick.AddListener(OnButtonDropTouch);
     }
@@ -36,12 +44,14 @@ public class PlayerDropCorpseController : MonoBehaviour
             {
 
                 zombieCorpses.SetActive(false);
+               
             }
 
+            onCorpseDropped?.Invoke();
             corpseSpawner.spawnedCorpse = false;
             corpseSpawner.offset = 0;
             corpseSpawner.duration = 0;
-
+            GrabController.currentlyCarrying = 0;
         }
     }
 
