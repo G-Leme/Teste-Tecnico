@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 3564458482518487840}
   m_Layer: 0
   m_Name: ZombieCorpsePivot
-  m_TagString: Untagged
+  m_TagString: Corpse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

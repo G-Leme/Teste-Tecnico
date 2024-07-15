@@ -10,14 +10,11 @@ public class ZombieCorpseController : MonoBehaviour
 
     [SerializeField]private float duration = 0.5f;
 
-    private float elapsedTime;
-
-
-    ZombieCorpseSpawner corpseOffset;
+    ZombieCorpseSpawner corpseDuration;
 
     void Awake()
     {
-        corpseOffset = FindAnyObjectByType<ZombieCorpseSpawner>();
+        corpseDuration = FindAnyObjectByType<ZombieCorpseSpawner>();
         playerPos = GameObject.Find("PlayerPos");
        // Debug.Log(corpseOffset.offset);
         
@@ -25,19 +22,12 @@ public class ZombieCorpseController : MonoBehaviour
 
     private void OnEnable()
     {
-       // transform.position = new Vector3(0, transform.position.y + corpseOffset.offset, 0);
-        duration += corpseOffset.delay;
+        duration += corpseDuration.duration;
     }
 
     private void OnDisable()
     {
-      
-    }
-    private void Start()
-    {
-     //   transform.position = new Vector3(0, transform.position.y + corpseOffset.offset, 0);
-
-        // transform.position = positionWithOffset;
+        duration = 0f;
     }
 
     // Update is called once per frame
@@ -49,7 +39,7 @@ public class ZombieCorpseController : MonoBehaviour
         MoveCorpse();
     }
 
-    //Moves the corpse pile towards the player location + offset
+    //Moves the corpse pile towards the player location
     private void MoveCorpse()
     {
         Vector3 target = new Vector3(playerPos.transform.position.x, transform.position.y, playerPos.transform.position.z);

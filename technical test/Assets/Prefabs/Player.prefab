@@ -215,6 +215,14 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 34bea9670b1b546438039b18a354a39b,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2563204221368772306}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 34bea9670b1b546438039b18a354a39b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5103549886990296846}
+    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 34bea9670b1b546438039b18a354a39b,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 2109777017297657227}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 34bea9670b1b546438039b18a354a39b,
         type: 3}
@@ -224,10 +232,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2085597255243677463}
-    - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: 34bea9670b1b546438039b18a354a39b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5103549886990296846}
   m_SourcePrefab: {fileID: 100100000, guid: 34bea9670b1b546438039b18a354a39b, type: 3}
 --- !u!1 &1083358259846011159 stripped
 GameObject:
@@ -249,6 +253,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystick: {fileID: 0}
   movementSpeed: 8
+--- !u!114 &2563204221368772306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083358259846011159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c135098db6c43b4780c045f0432ce96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieCorpseList: []
+--- !u!114 &5103549886990296846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083358259846011159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb996332e8673845a5052b38fa5b6a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabButton: {fileID: 0}
+  isGrabbable: 0
+  zombieRagdoll: {fileID: 0}
 --- !u!54 &2109777017297657227
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -316,22 +348,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 3
   m_Center: {x: 0, y: 1.5, z: 0}
---- !u!114 &5103549886990296846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083358259846011159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eb996332e8673845a5052b38fa5b6a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabButton: {fileID: 0}
-  isGrabbable: 0
 --- !u!4 &4130791793640712964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 34bea9670b1b546438039b18a354a39b,
