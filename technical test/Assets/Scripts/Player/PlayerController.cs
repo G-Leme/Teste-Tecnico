@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
         animator = GetComponent<Animator>();
     }
 
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             transform.rotation = Quaternion.LookRotation(rb.velocity);
+
             animator.SetBool("IsRunning", true);
      
         }

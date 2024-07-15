@@ -287,8 +287,9 @@ MonoBehaviour:
   grabButton: {fileID: 0}
   isGrabbable: 0
   zombieRagdoll: {fileID: 0}
-  maximumCarryAmmount: 1
+  currentCarryCapacity: {fileID: 0}
   currentlyCarrying: 0
+  maximumCarryAmmount: 1
 --- !u!114 &5738754956593818661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,12 +302,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aed93ea6e7f8804096e3b01eb0c2c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 600
   levelUpCost: 3
   currentLevel: 1
-  dropCorpseController: {fileID: 0}
   levelUpButton: {fileID: 0}
   playerColor: {fileID: 7230649864965585962}
+  levelUpText: {fileID: 0}
+  minimumMoneyText: {fileID: 0}
+  currentMoneyText: {fileID: 0}
 --- !u!54 &2109777017297657227
 Rigidbody:
   m_ObjectHideFlags: 0

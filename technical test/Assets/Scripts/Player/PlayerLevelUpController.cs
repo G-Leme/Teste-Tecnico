@@ -32,7 +32,9 @@ public class PlayerLevelUpController : MonoBehaviour
     void Awake()
     {
         grabController = GetComponent<PlayerGrabController>();
+
         levelUpButton.onClick.AddListener(OnButtonTouchLevelUp);
+
         dropCorpseController = GetComponent<PlayerDropCorpseController>();
 
         levelUpText.text = "LEVEL ATUAL: " + currentLevel;
@@ -88,10 +90,6 @@ public class PlayerLevelUpController : MonoBehaviour
 
           levelUpText.text = "LEVEL ATUAL: " + currentLevel;
 
-        }
-        else if (grabController.maximumCarryAmmount == 15)
-        {
-            Debug.Log(" You have reached the maximum level!");
         }
 
     }

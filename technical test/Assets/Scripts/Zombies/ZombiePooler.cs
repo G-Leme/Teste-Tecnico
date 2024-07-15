@@ -5,6 +5,7 @@ using UnityEngine;
 public class ZombiePooler : MonoBehaviour
 {
     public Dictionary<string, Queue<GameObject>> zombiePoolDictionary;
+
     public List<ZombiePool> zombiePools;
 
     public static ZombiePooler Instance;
@@ -18,7 +19,9 @@ public class ZombiePooler : MonoBehaviour
     public class ZombiePool
     {
         public string name;
+
         public GameObject prefab;
+
         public int size;
     }
 
@@ -34,7 +37,9 @@ public class ZombiePooler : MonoBehaviour
             for (int i = 0; i < zombiePool.size; i++)
             {
                 GameObject zombie = Instantiate(zombiePool.prefab);
+
                 zombie.SetActive(false);
+
                 zombiePoolQueue.Enqueue(zombie);
             }
 
@@ -49,7 +54,9 @@ public class ZombiePooler : MonoBehaviour
       GameObject zombieToSpawn =  zombiePoolDictionary[name].Dequeue();
 
         zombieToSpawn.transform.position = position;
+
         zombieToSpawn.transform.rotation = rotation;
+
         zombieToSpawn.SetActive(true);
 
         zombiePoolDictionary[name].Enqueue(zombieToSpawn);

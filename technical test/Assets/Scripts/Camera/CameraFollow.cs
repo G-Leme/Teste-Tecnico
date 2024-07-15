@@ -5,15 +5,11 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
+
     [SerializeField] private float smoothTime;
     
     private Vector3 velocity = Vector3.zero;
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (target != null)

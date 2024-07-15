@@ -13,7 +13,7 @@ public class PlayerDropCorpseController : MonoBehaviour
 
     [SerializeField] private bool insideDropArea;
 
-   [HideInInspector] public GameObject[] zombieCorpse;
+    [HideInInspector] public GameObject[] zombieCorpse;
 
     public static event Action onCorpseDropped;
 
@@ -24,14 +24,10 @@ public class PlayerDropCorpseController : MonoBehaviour
     void Awake()
     {
         GrabController = GetComponent<PlayerGrabController>();
+
         corpseSpawner = FindAnyObjectByType<ZombieCorpseSpawner>();
+
         dropButton.onClick.AddListener(OnButtonDropTouch);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnButtonDropTouch()
@@ -48,9 +44,13 @@ public class PlayerDropCorpseController : MonoBehaviour
             }
 
             onCorpseDropped?.Invoke();
+
             corpseSpawner.spawnedCorpse = false;
+
             corpseSpawner.offset = 0;
+
             corpseSpawner.duration = 0;
+
             GrabController.currentlyCarrying = 0;
         }
     }

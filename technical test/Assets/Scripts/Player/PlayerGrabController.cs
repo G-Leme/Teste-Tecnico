@@ -18,7 +18,7 @@ public class PlayerGrabController : MonoBehaviour
 
     public static event Action onCorpseGrabbed;
 
-     public int maximumCarryAmmount;
+    public int maximumCarryAmmount;
 
 
 
@@ -41,6 +41,7 @@ public class PlayerGrabController : MonoBehaviour
         else if (other.GetComponent<GrabbableObject>().enabled != false && other.GetComponent<GrabbableObject>() != null && currentlyCarrying < maximumCarryAmmount)
         {
             zombieRagdoll = other.GetComponentInParent<ZombieController>().gameObject ;
+
             isGrabbable = true;
 
         }
@@ -57,6 +58,7 @@ public class PlayerGrabController : MonoBehaviour
         if (other.GetComponent<GrabbableObject>().enabled != false && other.GetComponent<GrabbableObject>() != null && currentlyCarrying < maximumCarryAmmount)
         {
             isGrabbable = true;
+
             zombieRagdoll = other.GetComponentInParent<ZombieController>().gameObject;
         }
     }
@@ -71,8 +73,11 @@ public class PlayerGrabController : MonoBehaviour
         if(isGrabbable == true)
         {
             currentlyCarrying += 1;
+
             zombieRagdoll.SetActive(false);
+
             isGrabbable = false;
+
             onCorpseGrabbed?.Invoke();
         }
     }
