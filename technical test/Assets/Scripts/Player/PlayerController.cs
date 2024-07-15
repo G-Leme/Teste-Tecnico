@@ -14,16 +14,12 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+   
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-    }
-
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

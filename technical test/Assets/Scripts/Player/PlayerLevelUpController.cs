@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,12 @@ public class PlayerLevelUpController : MonoBehaviour
 
     [SerializeField] private Renderer playerColor;
 
+    [SerializeField] private TextMeshProUGUI levelUpText;
+
+    [SerializeField] private TextMeshProUGUI minimumMoneyText;
+
+    [SerializeField] private TextMeshProUGUI currentMoneyText;
+
     private PlayerDropCorpseController dropCorpseController;
 
     private float decreaseRGB = 0.1f;
@@ -27,6 +34,8 @@ public class PlayerLevelUpController : MonoBehaviour
         grabController = GetComponent<PlayerGrabController>();
         levelUpButton.onClick.AddListener(OnButtonTouchLevelUp);
         dropCorpseController = GetComponent<PlayerDropCorpseController>();
+
+        levelUpText.text = "LEVEL ATUAL: " + currentLevel;
     }
 
     private void OnEnable()
@@ -38,19 +47,26 @@ public class PlayerLevelUpController : MonoBehaviour
     {
         PlayerDropCorpseController.onCorpseDropped -= GainMoney;
     }
-  
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        minimumMoneyText.text = "$:" + levelUpCost;
+
+        currentMoneyText.text = "$ ATUAL: " + money;
+
+        if(grabController.maximumCarryAmmount == 15)
+        {
+            minimumMoneyText.text = "MAX" ;
+
+            levelUpText.text = "LEVEL ATUAL: MAX" ;
+        }
     }
 
     private void GainMoney()
     {
         money += 2 * dropCorpseController.zombieCorpse.Length;
 
-        Debug.Log(money);
+       
     }
 
     private void OnButtonTouchLevelUp()
@@ -59,18 +75,19 @@ public class PlayerLevelUpController : MonoBehaviour
         {
          currentLevel += 1;
 
-        grabController.maximumCarryAmmount += 1;
+         grabController.maximumCarryAmmount += 1;
 
-            money -= levelUpCost;
+         money -= levelUpCost;
 
 
-            playerColor.material.SetColor("_Color", new Vector4(1,1 - decreaseRGB,1 - decreaseRGB,1));
+         playerColor.material.SetColor("_Color", new Vector4(1,1 - decreaseRGB,1 - decreaseRGB,1));
 
-            decreaseRGB += 0.07f;
+         decreaseRGB += 0.07f;
 
-            levelUpCost += 4;
+         levelUpCost += 4;
 
-            Debug.Log(currentLevel);
+          levelUpText.text = "LEVEL ATUAL: " + currentLevel;
+
         }
         else if (grabController.maximumCarryAmmount == 15)
         {
