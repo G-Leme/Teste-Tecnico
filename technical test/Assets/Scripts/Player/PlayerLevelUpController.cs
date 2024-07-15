@@ -11,11 +11,16 @@ public class PlayerLevelUpController : MonoBehaviour
 
     [SerializeField] private int currentLevel;
 
-    [SerializeField] private PlayerDropCorpseController dropCorpseController;
-
     [SerializeField] private Button levelUpButton;
 
+    [SerializeField] private Renderer playerColor;
+
+    private PlayerDropCorpseController dropCorpseController;
+
+    private float decreaseRGB = 0.1f;
+
     private PlayerGrabController grabController;
+
 
     void Awake()
     {
@@ -58,8 +63,12 @@ public class PlayerLevelUpController : MonoBehaviour
 
             money -= levelUpCost;
 
-            levelUpCost += 4;
 
+            playerColor.material.SetColor("_Color", new Vector4(1,1 - decreaseRGB,1 - decreaseRGB,1));
+
+            decreaseRGB += 0.07f;
+
+            levelUpCost += 4;
 
             Debug.Log(currentLevel);
         }

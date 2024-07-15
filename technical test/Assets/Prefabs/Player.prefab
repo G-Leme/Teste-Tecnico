@@ -117,7 +117,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 9d453a4066f815e43a62e11f3c14c2eb, type: 2}
+      objectReference: {fileID: 2100000, guid: 339df71f30b7acc48a176226403c142d, type: 2}
     - target: {fileID: -6057140222963153312, guid: 34bea9670b1b546438039b18a354a39b,
         type: 3}
       propertyPath: m_Controller
@@ -306,6 +306,7 @@ MonoBehaviour:
   currentLevel: 1
   dropCorpseController: {fileID: 0}
   levelUpButton: {fileID: 0}
+  playerColor: {fileID: 7230649864965585962}
 --- !u!54 &2109777017297657227
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -378,6 +379,12 @@ SphereCollider:
 --- !u!4 &4130791793640712964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 34bea9670b1b546438039b18a354a39b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8946736623330263070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7230649864965585962 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7462081744117957580, guid: 34bea9670b1b546438039b18a354a39b,
     type: 3}
   m_PrefabInstance: {fileID: 8946736623330263070}
   m_PrefabAsset: {fileID: 0}

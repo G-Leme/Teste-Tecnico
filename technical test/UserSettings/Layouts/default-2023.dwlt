@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Inspector
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 492}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 119
+  controlID: 118
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 52
+  controlID: 78
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,8 +244,8 @@ MonoBehaviour:
     y: 0
     width: 388
     height: 503
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -818,9 +818,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 18.78911, y: 5.0378613, z: -15.541053}
+    m_Target: {x: 1.6462276, y: -4.8423524, z: 14.163627}
     speed: 2
-    m_Value: {x: 18.78911, y: 5.0378613, z: -15.541053}
+    m_Value: {x: 1.6462276, y: -4.8423524, z: 14.163627}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -866,13 +866,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.07827103, y: -0.19110201, z: 0.015203336, w: 0.97844654}
+    m_Target: {x: 0.16351274, y: -0.17308393, z: 0.028958712, w: 0.97093886}
     speed: 2
-    m_Value: {x: 0.07826183, y: -0.19107956, z: 0.015201549, w: 0.97833157}
+    m_Value: {x: 0.16349186, y: -0.17306183, z: 0.028955014, w: 0.97081494}
   m_Size:
-    m_Target: 2.431312
+    m_Target: 12.124355
     speed: 2
-    m_Value: 2.431312
+    m_Value: 12.124355
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1066,20 +1066,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 52e4f8ffb2e4f8ff9ce7f8ff4aedf8ff9aedf8ffaef0f8ffe8e4f9ffa0fdf9ffc607ffffca07ffff3008ffff1619ffff181dffffe82cffffca9dffff04fbffff14610000
+      m_SelectedIDs: 62a60000
+      m_LastClickedID: 42594
+      m_ExpandedIDs: b220fcffd2d4fcff22d5fcffc8d7fcff8cfaffff1861000062a6000068a6000070a70000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: ZombieCorpsePivot(Clone)
-        m_OriginalName: ZombieCorpsePivot(Clone)
+        m_Name: Main Camera
+        m_OriginalName: Main Camera
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -421686
+        m_UserData: 42774
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -1139,7 +1139,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1157,7 +1158,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 86590000
     m_LastClickedID: 22918
-    m_ExpandedIDs: 00000000ee62000070640000726400007464000076640000786400007a6400007c6400007e640000
+    m_ExpandedIDs: 000000006c630000d8640000da640000dc640000de640000e0640000e2640000e4640000e6640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1185,21 +1186,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000ee62000070640000726400007464000076640000786400007a6400007c640000ee640000
+    m_ExpandedIDs: ffffffff000000006c630000d8640000da640000dc640000de640000e0640000e2640000e464000054650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Zombie
+      m_OriginalName: Zombie
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 24982
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -1281,7 +1282,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: 151
+    m_CachedPref: -151
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
